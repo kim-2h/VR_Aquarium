@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dText;    
     private TextMeshProUGUI TargetText;
     public GameObject Panel;    
+    public GameObject Profile;
     public bool IsDialoguePlaying { get; set; }
     public Queue<string> QDialogue = new Queue<string>();
     
@@ -33,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         dText.text = "";
         yield return new WaitForSeconds(0.1f);
         IsDialoguePlaying = true;
+        Profile.SetActive(true);
         Panel.SetActive(true);
         //yield return new WaitForSeconds(1f);
         StartCoroutine(PanelEffect(0.5f));
@@ -64,6 +66,7 @@ public class DialogueManager : MonoBehaviour
         
         IsDialoguePlaying = false;
         Panel.SetActive(false);
+        Profile.SetActive(false);
     }
 
     public IEnumerator PanelEffect(float time)
