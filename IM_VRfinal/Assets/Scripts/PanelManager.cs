@@ -14,11 +14,13 @@ public class PanelManager : MonoBehaviour
     void Start()
     {
         button.selectEntered.AddListener((_) => ButtonClick());
+        FishObj.SetActive(false);
         index = -1;
     }
 
     public void ButtonClick()
     {
+        AudioManager.Instance.PlaySFX(0);
         if (index != -1) panels[index].SetActive(false);
         index++;
         if (index == panels.Length)

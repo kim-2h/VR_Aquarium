@@ -36,17 +36,16 @@ public class TutorialManager : MonoBehaviour
         
         if (!done1 && Vector3.Distance(Player.transform.position, Pos1) < 3.0f)
         {
-            DM.QDialogue.Enqueue("Welcome there!\nFeel free to explore!");
-            DM.QDialogue.Enqueue("Press the buttons to discover fascinating information about each marine animal.");
-            DM.QDialogue.Enqueue("Each time you interact with a species,");
-            DM.QDialogue.Enqueue("you'll earn a model of the animal to display proudly on your personal achievement board!");
+            DM.QDialogue.Enqueue("Press the buttons to discover information about each marine animal!");
+            DM.QDialogue.Enqueue("Each time you interact with a species, you'll earn a model");
+ 
+            DM.QDialogue.Enqueue("to display on your personal achievement board!");
             DM.QDialogue.Enqueue("To place your model on the achievement board, simply click and hold the model to pick it up,");
-            DM.QDialogue.Enqueue("drag it to your desired spot on the board, and release to set it in place!");
-            DM.QDialogue.Enqueue("You can move around the aquarium freely,"+
-            "or teleport to specific locations"); 
-            DM.QDialogue.Enqueue("by pointing at the colorful portals on the ground and selecting them to teleport!");
+            DM.QDialogue.Enqueue("drag it to your desired spot on the board, and release!");
+            DM.QDialogue.Enqueue("You can move around the aquarium freely, or teleport to specific locations");
+            DM.QDialogue.Enqueue("by selecting the dots on the ground!");
 
-            DM.CallRoutine("Please Enjoy!!");
+            DM.CallRoutine("You’re now ready to start exploring, good luck!");
             Effect1.SetActive(false);
             AudioManager.Instance.PlaySFX(1);
             done1 = true;
@@ -54,28 +53,29 @@ public class TutorialManager : MonoBehaviour
 
         if (!done2 && Vector3.Distance(Player.transform.position, Pos2) < 3.0f)
         {
-            DM.QDialogue.Enqueue("wow you've looked around the whole map");
-            DM.QDialogue.Enqueue("thanks for playing");
-            DM.QDialogue.Enqueue("if you're interested in more,\nplease visit our museum");
+            DM.QDialogue.Enqueue("Thanks for playing Aqua Craft!");
+            DM.QDialogue.Enqueue("We hope you had a fin-tastic time learning about marine animals"
+            +"and crafting your very own aquarium.");
+            DM.CallRoutine("See you next time in the depths of Aqua Craft!");
 
-            DM.CallRoutine("Bye!!!");
+
             Effect2.SetActive(false);
             AudioManager.Instance.PlaySFX(1);
             done2 = true;
         }
 
-        if (!CoolDown && Vector3.Distance(Player.transform.position, Pos3) < 3.0f) //1층->2층
+        if (!CoolDown && Vector3.Distance(Player.transform.position, Pos3) < 2.0f) //1층->2층
         {
             StartCoroutine(Cooldown(5.0f));
             PlayerReal.transform.position = Dest2;
-            AudioManager.Instance.PlaySFX(1);
+            AudioManager.Instance.PlaySFX(2);
         }
 
-        if (!CoolDown && Vector3.Distance(Player.transform.position, Pos4) < 3.0f) //2층->1층
+        if (!CoolDown && Vector3.Distance(Player.transform.position, Pos4) < 2.0f) //2층->1층
         {
             StartCoroutine(Cooldown(5.0f));
             PlayerReal.transform.position = Dest1;
-            AudioManager.Instance.PlaySFX(1);
+            AudioManager.Instance.PlaySFX(2);
         }
 
 
